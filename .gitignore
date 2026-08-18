@@ -1,0 +1,16 @@
+# Virtual Environment
+.venv/
+env/
+antenv/
+
+# Python cache & temporary files
+__pycache__/
+*.pyc
+*.pyo
+
+# Secret Environment Variables (NEVER commit this)
+.env
+
+# OS temporary files
+.DS_Store
+Thumbs.db

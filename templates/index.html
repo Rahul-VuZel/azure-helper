@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Student Copilot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body class="dark-theme">
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">⚡</div>
+                <div>
+                    <h2>Student Copilot</h2>
+                    <span class="badge" id="ai-status-badge">Engine: Detecting...</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="chat-tab">
+                    <span class="icon">💬</span> Socratic Tutor
+                </button>
+                <button class="nav-item" data-tab="flashcards-tab">
+                    <span class="icon">🗂️</span> Flashcards
+                </button>
+                <button class="nav-item" data-tab="quiz-tab">
+                    <span class="icon">📝</span> Practice Quiz
+                </button>
+                <button class="nav-item" data-tab="summary-tab">
+                    <span class="icon">📑</span> Note Synthesizer
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Interactive Workspace -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-nav">
+                <h1 id="active-tab-title">Socratic Tutor</h1>
+                <div class="nav-controls">
+                    <label for="persona-select">Tutor Persona:</label>
+                    <select id="persona-select">
+                        <option value="socratic">Socratic Guide</option>
+                        <option value="debugger">Code Debugger</option>
+                        <option value="exam_prep">Exam Prep</option>
+                        <option value="simplifier">Concept Simplifier (Feynman)</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- 1. Chat Tab -->
+            <section id="chat-tab" class="tab-panel active">
+                <div class="chat-container" id="chat-history">
+                    <div class="message system-msg">
+                        <div class="msg-content">
+                            <strong>Welcome to your AI Student Copilot!</strong>
+                            <p>Ask a question about databases, cloud architecture, or programming concepts to begin.</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="input-form">
+                    <input type="text" id="chat-input"
+                        placeholder="Ask a conceptual question (e.g. How does database sharding work?)..." required
+                        autocomplete="off">
+                    <button type="submit" id="chat-submit-btn">Send</button>
+                </form>
+            </section>
+
+            <!-- 2. Flashcards Tab -->
+            <section id="flashcards-tab" class="tab-panel">
+                <div class="tool-header">
+                    <input type="text" id="fc-topic-input"
+                        placeholder="Enter topic (e.g., SQL Joins, Cloud Storage)...">
+                    <button id="fc-generate-btn">Generate Deck</button>
+                </div>
+                <div class="flashcard-deck" id="flashcard-deck">
+                    <p class="empty-state">Enter a topic above and click "Generate Deck" to create study cards.</p>
+                </div>
+            </section>
+
+            <!-- 3. Quiz Tab -->
+            <section id="quiz-tab" class="tab-panel">
+                <div class="tool-header">
+                    <input type="text" id="quiz-topic-input"
+                        placeholder="Quiz topic (e.g., Azure Fundamentals, Relational DBs)...">
+                    <button id="quiz-generate-btn">Generate Quiz</button>
+                </div>
+                <div class="quiz-container" id="quiz-container">
+                    <p class="empty-state">Enter a topic and generate practice questions.</p>
+                </div>
+            </section>
+
+            <!-- 4. Summarizer Tab -->
+            <section id="summary-tab" class="tab-panel">
+                <div class="summarizer-grid">
+                    <div class="input-pane">
+                        <textarea id="summary-input"
+                            placeholder="Paste your raw lecture notes, article excerpts, or documentation here..."></textarea>
+                        <button id="summary-generate-btn">Synthesize Notes</button>
+                    </div>
+                    <div class="output-pane">
+                        <div id="summary-output" class="markdown-preview">
+                            <p class="empty-state">Synthesized notes and key takeaways will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
